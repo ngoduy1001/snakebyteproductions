@@ -4,6 +4,9 @@ if (document.readyState == 'loading') {
     ready()
 }
 
+var email = ""
+var content = ""
+
 function ready() {
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
@@ -27,7 +30,15 @@ function ready() {
 }
 
 function purchaseClicked() {
-    alert('Thank you for your purchase')
+    console.log(email)
+    if (email == "") {
+        alert('Please enter your email so we could send you a quote.')
+        return
+    }
+
+    content += 'Customer Email: ' + email + '<br>' + '<br>' //new line in email
+    
+    //alert('Thank you for your purchase')
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0
@@ -44,7 +55,22 @@ function purchaseClicked() {
         //total = total + (price * quantity)
         console.log('Item price: $' + price)
         console.log('Item quantity: ' + quantity)
+        content += 'Item name: ' + title + '<br>'
+        content += 'Item price: $' + price + '<br>'
+        content += 'Item quantity: ' + quantity + '<br>' + '<br>'
     }
+    Email.send({
+        Host : "smtp25.elasticemail.com",
+        Username : "duyngo1001@gmail.com",
+        Password : "d0ff7019-a071-4022-9f0e-fbbd5e1722ce",
+        To : 'ngoduy1001@gmail.com',
+        From : "duyngo1001@gmail.com",
+        Subject : "Customer Orders",
+        Body : content
+    }).then(
+      message => alert('Thank you for shopping with us. We will send you a quote asap.')
+    );
+
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -123,6 +149,6 @@ function updateCartTotal() {
 }
 
 function myFunction() {
-    var email = document.getElementById("email").value;
+    email = document.getElementById("email").value;
     console.log("Customer email is: " + email)
   }
