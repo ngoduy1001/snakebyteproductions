@@ -42,7 +42,9 @@ function purchaseClicked() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0
+    var emptyCart = true
     for (var i = 0; i < cartRows.length; i++) {
+        emptyCart = false
         var cartRow = cartRows[i]
         var titleElement = cartRow.getElementsByClassName('cart-item cart-column')[0].getElementsByClassName('cart-item-title')[0]
         var title = titleElement.innerText
@@ -58,6 +60,11 @@ function purchaseClicked() {
         content += 'Item name: ' + title + '<br>'
         content += 'Item price: $' + price + '<br>'
         content += 'Item quantity: ' + quantity + '<br>' + '<br>'
+    }
+    console.log(content + "content")
+    if (emptyCart == true) {
+        alert('Please select the items you\'d like to purchase.')
+        return
     }
     Email.send({
         Host : "smtp25.elasticemail.com",
