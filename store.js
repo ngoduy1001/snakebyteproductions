@@ -6,6 +6,7 @@ if (document.readyState == 'loading') {
 
 var email = ""
 var content = ""
+var emailEntered = false
 
 function ready() {
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
@@ -35,9 +36,11 @@ function purchaseClicked() {
         alert('Please enter your email so we could send you a quote.')
         return
     }
-
-    content += 'Customer Email: ' + email + '<br>' + '<br>' //new line in email
-    
+    // Only write email once
+    if (emailEntered == false){
+        content += 'Customer Email: ' + email + '<br>' + '<br>' //new line in email
+        emailEntered = true
+    }
     //alert('Thank you for your purchase')
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
