@@ -69,6 +69,7 @@ function purchaseClicked() {
         alert('Please select the items you\'d like to purchase.')
         return
     }
+    // This function send an email to the company about this customer's order
     Email.send({
         Host : "smtp25.elasticemail.com",
         Username : "duyngo1001@gmail.com",
