@@ -74,7 +74,7 @@ function purchaseClicked() {
         Host : "smtp25.elasticemail.com",
         Username : "duyngo1001@gmail.com",
         Password : "d0ff7019-a071-4022-9f0e-fbbd5e1722ce",
-        To : 'ngoduy1001@gmail.com',
+        To : 'Dlywrx1996@hotmail.com',
         From : "duyngo1001@gmail.com",
         Subject : "Customer Orders",
         Body : content

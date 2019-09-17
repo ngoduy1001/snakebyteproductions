@@ -98,7 +98,7 @@ html, body {
 }
 
 .main-footer {
-    background-color: #56CCF2;
+    background-color: #F2600B;
     color: white;
     padding: .25em 0;
 }
@@ -132,7 +132,7 @@ html, body {
 .btn-header {
     margin: .5em 15% 2em 15%;
     color: white;
-    border: 2px solid #2D9CDB;
+    border: 2px solid #F2600B;
     background-color: rgba(255, 255, 255, .1);
     border-radius: 0;
     font-size: 1.5em;
@@ -148,7 +148,7 @@ html, body {
 .btn-play {
     display: block;
     margin: 0 auto;
-    color: #2D9CDB;
+    color: rgb(219, 129, 45);
     font-size: 4em;
     border-radius: 50%;
     width: 100px;
@@ -159,14 +159,14 @@ html, body {
 
 .btn-primary {
     color: white;
-    background-color: #56CCF2;
+    background-color: #F2600B;
     border: none;
     border-radius: .3em;
     font-weight: bold;
 }
 
 .btn-primary:hover {
-    background-color: #2D9CDB;
+    background-color: rgb(219, 71, 45);
 }
 
 .tour-row {
@@ -284,21 +284,21 @@ html, body {
 
 .btn-danger {
     color: white;
-    background-color: #EB5757;
+    background-color: rgb(235, 220, 87);
     border: none;
     border-radius: .3em;
     font-weight: bold;
 }
 
 .btn-danger:hover {
-    background-color: #CC4C4C;
+    background-color: rgb(202, 204, 76);
 }
 
 .cart-quantity-input {
     height: 34px;
     width: 50px;
     border-radius: 5px;
-    border: 1px solid #56CCF2;
+    border: 1px solid #F2600B;
     background-color: #eee;
     color: #333;
     padding: 0;
@@ -338,3 +338,35 @@ html, body {
     margin: 40px auto 80px auto;
     font-size: 1.75em;
 }
+
+.sidenav {
+    margin-top: 179px;
+    height: 659px;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 0px;
+    background: white;
+    overflow-x: hidden;
+    padding: 8px 0;
+  }
+  
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+
+  html {
+    scroll-behavior: smooth;
+  }
