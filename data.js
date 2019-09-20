@@ -8,7 +8,8 @@ var codeBlock = '<div class="shop-item">'
 + '</div>'
 document.write(codeBlock);
 document.write(codeBlock);
-<section class="container content-section">
+var concac = `
+<section class="container content-section"> + ${cac}
 <h2 class="section-header" id = "MUSIC">MUSIC</h2>
 <div class="shop-items">
     <div class="shop-item">
@@ -45,4 +46,4 @@ document.write(codeBlock);
     </div>
     <!-- <script src ="data.js"></script> -->
 </div>
-</section>
+</section>`
