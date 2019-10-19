@@ -57,6 +57,8 @@ a:hover
 {
 	margin: 0px auto;
 	width: 1200px;
+	/* For the icons */
+	color: black;
 }
 
 /*********************************************************************************/
@@ -611,7 +613,7 @@ ul.contact li a.icon-rss:before
 #copyright a
 {
 	text-decoration: none;
-	color: rgba(255,255,255,0.6);
+	color: rgba(235, 227, 227, 0.6);
 }
 
 /*********************************************************************************/
@@ -622,7 +624,7 @@ ul.contact li a.icon-rss:before
 {
 	overflow: hidden;
 	padding: 6em 0em;
-	background: #383838;
+	background: rgb(229, 235, 235);
 	text-align: center;
 }
 
@@ -661,10 +663,11 @@ ul.contact li a.icon-rss:before
 	font-size: 1.2em;
 }
 
+/* Title for icons */
 #featured h2
 {
 	text-align: center;
-	color: #FFF;
+	color: black;
 }
 
 #featured .icon
