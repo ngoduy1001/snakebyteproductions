@@ -1,20 +1,28 @@
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyBoI34k9HA9vtPQs5MrsqeREjL1UFLvDjA",
-    authDomain: "snakebyte-f8830.firebaseapp.com",
-    databaseURL: "https://snakebyte-f8830.firebaseio.com",
-    projectId: "snakebyte-f8830",
-    storageBucket: "snakebyte-f8830.appspot.com",
-    messagingSenderId: "168408660958",
-    appId: "1:168408660958:web:d18a2a041b818bed4f7b4f",
-    measurementId: "G-TYQNSH7RWF"
+    apiKey: "AIzaSyB8tFY_RxhJccUK6KbKfnK1rGDPxvqGVug",
+    authDomain: "snakebyte-4b205.firebaseapp.com",
+    databaseURL: "https://snakebyte-4b205.firebaseio.com",
+    projectId: "snakebyte-4b205",
+    storageBucket: "snakebyte-4b205.appspot.com",
+    messagingSenderId: "940306503204",
+    appId: "1:940306503204:web:0da6c98cb296fa512aaab1",
+    measurementId: "G-2S98730FLP"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-console.log("wtf")
+console.log("Initialized database")
+function writeUserData(userId, name, email, imageUrl) {
+    firebase.database().ref('users/' + userId).set({
+      username: name,
+      email: email,
+      profile_picture : imageUrl
+    });
+  }
+writeUserData("123","cac", "cac", "cac");
 
-console.log("wtf")
+
 // writeUserData(1, "cac", "hello")
 var sectionHeader = "concac"
 var ItemTitle = "David Bitch"
@@ -33,7 +41,6 @@ var code = `<section class="container content-section">
         </div>
     </div>
 </section>`
-console.log("wtf")
 document.write(code)
 document.write(code)
 document.write(code)
