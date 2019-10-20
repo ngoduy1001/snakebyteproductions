@@ -1,33 +1,98 @@
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB8tFY_RxhJccUK6KbKfnK1rGDPxvqGVug",
-    authDomain: "snakebyte-4b205.firebaseapp.com",
-    databaseURL: "https://snakebyte-4b205.firebaseio.com",
-    projectId: "snakebyte-4b205",
-    storageBucket: "snakebyte-4b205.appspot.com",
-    messagingSenderId: "940306503204",
-    appId: "1:940306503204:web:0da6c98cb296fa512aaab1",
-    measurementId: "G-2S98730FLP"
+// Config for firebase
+var firebaseConfig = {
+    apiKey: "AIzaSyBoI34k9HA9vtPQs5MrsqeREjL1UFLvDjA",
+    authDomain: "snakebyte-f8830.firebaseapp.com",
+    databaseURL: "https://snakebyte-f8830.firebaseio.com",
+    projectId: "snakebyte-f8830",
+    storageBucket: "snakebyte-f8830.appspot.com",
+    messagingSenderId: "168408660958",
+    appId: "1:168408660958:web:d18a2a041b818bed4f7b4f",
+    measurementId: "G-TYQNSH7RWF"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+//   firebase.analytics();
+var db = firebase.firestore();
 console.log("Initialized database")
-function writeUserData(userId, name, email, imageUrl) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email,
-      profile_picture : imageUrl
-    });
-  }
-writeUserData("123","cac", "cac", "cac");
+
+// var davidRef = db.collection("cities");
+
+// davidRef.doc("SF").set({
+//     name: "San Francisco", state: "CA", country: "USA",
+//     capital: false, population: 860000,
+//     regions: ["west_coast", "norcal"] });
+// davidRef.doc("LA").set({
+//     name: "Los Angeles", state: "CA", country: "USA",
+//     capital: false, population: 3900000,
+//     regions: ["west_coast", "socal"] });
+// davidRef.doc("DC").set({
+//     name: "Washington, D.C.", state: null, country: "USA",
+//     capital: true, population: 680000,
+//     regions: ["east_coast"] });
+// davidRef.doc("TOK").set({
+//     name: "Tokyo", state: null, country: "Japan",
+//     capital: true, population: 9000000,
+//     regions: ["kanto", "honshu"] });
+// davidRef.doc("BJ").set({
+//     name: "Beijing", state: null, country: "China",
+//     capital: true, population: 21500000,
+//     regions: ["jingjinji", "hebei"] });
+
+var davidRef = db.collection("inventory");
+
+davidRef.doc("david").set({
+    name: "david", 
+    price : "1234", 
+    src : "images/banner.jpg" });
+
+davidRef.doc("jmo").set({
+    name: "jmo", 
+    price: "12424", 
+    src: "images/banner.jpg" });
+
+davidRef.doc("thomas").set({
+    name: "concac", 
+    price: "123434", 
+    src: "images/banner.jpg" });
+    
+// single query
+var docRef = db.collection("inventory").doc("david");
+
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+        var name = doc.get('name')
+        console.log(name)
+        
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+}); 
+
+// /* multiple queries */
+// db.collection("inventory").get().then(function(querySnapshot) {
+//     querySnapshot.forEach(function(doc) {
+//         // doc.data() is never undefined for query doc snapshots
+//         console.log(doc.id, " => ", doc.data());
+//         console.log("Wtf")
+//         console.log(doc.data().name)
+//         // displayItem(doc.data());
+//     });
+// });
 
 
-// writeUserData(1, "cac", "hello")
+function displayItem(){
 var sectionHeader = "concac"
 var ItemTitle = "David Bitch"
 var imgSrc = "images/banner.jpg"
 var itemPrice = "13299"
+// var sectionHeader = "concac"
+// var ItemTitle = data.name
+// var imgSrc = data.src
+// var itemPrice = data.price
 var code = `<section class="container content-section">
     <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
     <div class="shop-items">
@@ -42,5 +107,5 @@ var code = `<section class="container content-section">
     </div>
 </section>`
 document.write(code)
-document.write(code)
-document.write(code)
+}
+displayItem()
