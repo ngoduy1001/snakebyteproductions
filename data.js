@@ -1,13 +1,17 @@
-/* Manually add items onto page */
-// Get a reference to the database service
-
-// function writeUserData(userId, name, email, imageUrl) {
-//     firebase.database().ref('users/' + userId).set({
-//       username: name,
-//       email: email,
-//       profile_picture : imageUrl
-//     });
-//   }
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBoI34k9HA9vtPQs5MrsqeREjL1UFLvDjA",
+    authDomain: "snakebyte-f8830.firebaseapp.com",
+    databaseURL: "https://snakebyte-f8830.firebaseio.com",
+    projectId: "snakebyte-f8830",
+    storageBucket: "snakebyte-f8830.appspot.com",
+    messagingSenderId: "168408660958",
+    appId: "1:168408660958:web:d18a2a041b818bed4f7b4f",
+    measurementId: "G-TYQNSH7RWF"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 console.log("wtf")
 
 console.log("wtf")
