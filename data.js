@@ -1,5 +1,17 @@
 /* Manually add items onto page */
+// Get a reference to the database service
 
+// function writeUserData(userId, name, email, imageUrl) {
+//     firebase.database().ref('users/' + userId).set({
+//       username: name,
+//       email: email,
+//       profile_picture : imageUrl
+//     });
+//   }
+console.log("wtf")
+
+console.log("wtf")
+// writeUserData(1, "cac", "hello")
 var sectionHeader = "concac"
 var ItemTitle = "David Bitch"
 var imgSrc = "images/banner.jpg"
@@ -17,6 +29,7 @@ var code = `<section class="container content-section">
         </div>
     </div>
 </section>`
+console.log("wtf")
 document.write(code)
 document.write(code)
 document.write(code)
