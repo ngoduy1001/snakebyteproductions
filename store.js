@@ -1,6 +1,7 @@
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
+    setTimeout(napTime, 5000)
     ready()
 }
 
@@ -165,4 +166,4 @@ function myFunction() {
     email = document.getElementById("email").value;
     console.log("Customer email is: " + email)
   }
-function getSingle(){}
+function napTime(){}
