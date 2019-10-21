@@ -8,7 +8,7 @@
         <script src="https://smtpjs.com/v3/smtp.js">
         </script>
     </head>
-    <body>
+    <body onload="getSingle()">
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
@@ -19,7 +19,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
-    
 
 
         <!-- <header class="main-header">
@@ -48,7 +47,7 @@
 
         <section class="container content-section">
             <h2 class="section-header" id = "MUSIC">MUSIC</h2>
-            <div class="shop-items">
+            <div class="shop-items" id = "testing">
                 <div class="shop-item">
                     <span class="shop-item-title">Album 1</span>
                     <img class="shop-item-image" src="Images/Album 1.png">
@@ -82,6 +81,7 @@
                     </div>
                 </div>
                 <script src ="data.js"></script>
+                <div id="one"></div>
             </div>
         </section>
         <section class="container content-section">

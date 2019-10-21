@@ -165,3 +165,4 @@ function myFunction() {
     email = document.getElementById("email").value;
     console.log("Customer email is: " + email)
   }
+function getSingle(){}

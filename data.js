@@ -101,10 +101,26 @@ function displayItem(data){
 // var itemPrice = "13299"
 var sectionHeader = "concac"
 var ItemTitle = data.name
-var imgSrc = data.src
+// var imgSrc = data.src
+var imgSrc = "/Images/Album 1.png"
 var itemPrice = data.price
-var code = `<section class="container content-section">
-    <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
+// var code = `<section class="container content-section">
+//     <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
+//     <div class="shop-items">
+//         <div class="shop-item">
+//             <span class="shop-item-title">${ItemTitle}</span>
+//             <img class="shop-item-image" src="${imgSrc}"> 
+//             <div class="shop-item-details">
+//                 <span class="shop-item-price">$${itemPrice}</span>
+//                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+//             </div>
+//         </div>
+//     </div>
+// </section>`
+
+var sectionBegin = `<section class="container content-section">
+    <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>`
+var singleItem = `    
     <div class="shop-items">
         <div class="shop-item">
             <span class="shop-item-title">${ItemTitle}</span>
@@ -114,7 +130,18 @@ var code = `<section class="container content-section">
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
         </div>
-    </div>
-</section>`
-document.write(code)
+    </div>`
+var sectionEnd = `</section>`
+
+
+// document.write(code)
+var d1 = document.getElementById('testing');
+// d1.insertAdjacentHTML('beforeend', sectionBegin);
+d1.insertAdjacentHTML('beforeend', singleItem);
+d1.insertAdjacentHTML('beforeend', singleItem);
+d1.insertAdjacentHTML('beforeend', sectionEnd);
+// document.currentScript.insertAdjacentHTML(
+//     'beforebegin', 
+//     '<p>Herro</p>'
+// );
 }
