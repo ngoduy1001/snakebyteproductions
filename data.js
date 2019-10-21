@@ -42,18 +42,23 @@ var inventoryRef = db.collection("inventory");
 
 inventoryRef.doc("david").set({
     name: "david", 
-    price : "1234", 
+    price : "69", 
     src : "images/banner.jpg" });
 
 inventoryRef.doc("jmo").set({
     name: "jmo", 
-    price: "12424", 
-    src: "images/banner.jpg" });
+    price: "99", 
+    src: "Images/jmo.jpg" });
 
 inventoryRef.doc("thomas").set({
     name: "thomas", 
-    price: "123434", 
+    price: "79", 
     src: "images/banner.jpg" });
+
+    inventoryRef.doc("ropha").set({
+        name: "ropha", 
+        price: "69", 
+        src: "images/banner.jpg" });
     
 // // single query
 // var docRef = db.collection("inventory").doc("david");
@@ -96,6 +101,8 @@ var sectionHeader = "concac"
     <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
     <div class="shop-items">`
 
+var loading = true
+
 function getAllItems(ref, displayItem, callback){
     writing = ""
     var sectionHeader = "concac"
@@ -117,6 +124,15 @@ function getAllItems(ref, displayItem, callback){
         callback() // call ready in store.js
         
     }, 2000);
+    // while(loading) {        
+    // }
+    // writing += sectionEnd
+    // globalStr += sectionEnd
+    // console.log('final', writing)
+    // console.log('global',globalStr )
+    // var d1 = document.getElementById('test');
+    // d1.insertAdjacentHTML('afterend', globalStr);
+    // callback() // call ready in store.js
 
 }
 
@@ -128,11 +144,12 @@ function loopDatabase(ref, writing, displayItem) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
             temp += displayItem(doc.data());
-            console.log('TEMP', temp)
+            // console.log('TEMP', temp)
         });
     });
     // console.log('global', globalStr)
     globalStr = temp
+    loading = false
     return temp
 }
 
