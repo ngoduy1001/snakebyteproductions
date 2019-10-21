@@ -40,20 +40,20 @@ console.log("Initialized database")
 
 var davidRef = db.collection("inventory");
 
-davidRef.doc("david").set({
-    name: "david", 
-    price : "1234", 
-    src : "images/banner.jpg" });
+// davidRef.doc("david").set({
+//     name: "david", 
+//     price : "1234", 
+//     src : "images/banner.jpg" });
 
-davidRef.doc("jmo").set({
-    name: "jmo", 
-    price: "12424", 
-    src: "images/banner.jpg" });
+// davidRef.doc("jmo").set({
+//     name: "jmo", 
+//     price: "12424", 
+//     src: "images/banner.jpg" });
 
-davidRef.doc("thomas").set({
-    name: "concac", 
-    price: "123434", 
-    src: "images/banner.jpg" });
+// davidRef.doc("thomas").set({
+//     name: "concac", 
+//     price: "123434", 
+//     src: "images/banner.jpg" });
     
 // single query
 var docRef = db.collection("inventory").doc("david");
@@ -70,7 +70,7 @@ function getSingleQuery(callback){
             // doc.data() will be undefined in this case
             console.log("No such document!");
         }
-        callback(doc.data());
+        callback(doc.data(), ready);
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
@@ -94,11 +94,8 @@ getSingleQuery(displayItem);
 // var ItemTitle = "cac"
 // var imgSrc = "cac"
 // var itemPrice ="cac"
-function displayItem(data){
-// var sectionHeader = "concac"
-// var ItemTitle = "David Bitch"
-// var imgSrc = "images/banner.jpg"
-// var itemPrice = "13299"
+
+function displayItem(data, callback){
 var sectionHeader = "concac"
 var ItemTitle = data.name
 // var imgSrc = data.src
@@ -150,8 +147,46 @@ var whole =
     </div>
 </section>`
 
-var writing = sectionBegin + singleItem + singleItem + sectionEnd
-// document.write(code)
+var wholeItem =`
+<div class="shop-item">
+<span class="shop-item-title">Album 1</span>
+<img class="shop-item-image" src="Images/Album 1.png">
+<div class="shop-item-details">
+    <span class="shop-item-price">$12.99</span>
+    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+</div>
+</div>`
+var wholeSection = `
+<section class="container content-section">
+            <h2 class="section-header" id = "MERCH" >MERCH</h2>
+
+            <div class="shop-items">
+
+                <div class="shop-item">
+                    <span class="shop-item-title">T-Shirt</span>
+                    <img class="shop-item-image" src="Images/Shirt.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                    <span class="shop-item-title">Coffee Cup</span>
+                    <img class="shop-item-image" src="Images/Cofee.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$6.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>`
+
+// var writing = sectionBegin + singleItem + singleItem + singleItem +singleItem+ sectionEnd
+var writing = sectionBegin + wholeItem + wholeItem + sectionEnd
+writing = wholeSection
 var d1 = document.getElementById('test');
 d1.insertAdjacentHTML('afterend', writing);
 // var info = {d1, sectionBegin, singleItem, sectionEnd }
@@ -161,18 +196,18 @@ d1.insertAdjacentHTML('afterend', writing);
 
 // d1.insertAdjacentHTML('beforeend', singleItem);
 // d1.insertAdjacentHTML('beforeend', singleItem);
-
+callback()
 }
 
-function first(info, cb){
-    info.d1.insertAdjacentHTML('afterend', info.sectionBegin);
-    cb(info, third);
-}
-function second(info, cb) {
-    info.d1.insertAdjacentHTML('afterend', info.singleItem);
-    info.d1.insertAdjacentHTML('afterend', info.singleItem);
-    cb(info);
-}
-function third(info) {
-    info.d1.insertAdjacentHTML('afterend', info.sectionEnd);
-}
+// function first(info, cb){
+//     info.d1.insertAdjacentHTML('afterend', info.sectionBegin);
+//     cb(info, third);
+// }
+// function second(info, cb) {
+//     info.d1.insertAdjacentHTML('afterend', info.singleItem);
+//     info.d1.insertAdjacentHTML('afterend', info.singleItem);
+//     cb(info);
+// }
+// function third(info) {
+//     info.d1.insertAdjacentHTML('afterend', info.sectionEnd);
+// }

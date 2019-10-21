@@ -1,7 +1,6 @@
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
-    setTimeout(napTime, 5000)
     ready()
 }
 

@@ -4,7 +4,7 @@
         <title>snakebyteProductions</title>
         <meta name="description" content="This is the description">
         <link rel="stylesheet" href="styles.css" />
-        <script async src="store.js" async></script>
+        
         <script src="https://smtpjs.com/v3/smtp.js">
         </script>
     </head>
@@ -43,7 +43,7 @@
                 <a href="#contact">Contact</a>
               </div>
         
-        <script src="data.js"></script>
+              <script src="data.js"></script>  
         <section class="container content-section" id = "test">
             <h2 class="section-header" id = "MUSIC">MUSIC</h2>
             <div class="shop-items">
@@ -63,7 +63,20 @@
                         <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
                     </div>
                 </div>
-                
+                <!-- <script> var canon = `
+                                <div class="shop-item" id = "cac">
+                    <span class="shop-item-title">Album 2</span>
+                    <img class="shop-item-image" src="Images/Album 2.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                `
+                cac.insertAdjacentHTML('afterend', canon);
+                </script> -->
+
+
                 <div class="shop-item" id = "cacafter">
                     <span class="shop-item-title">Album 3</span>
                     <img class="shop-item-image" src="Images/Album 3.png">
@@ -81,8 +94,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-        
+        </section>    
+         
         
         <section class="container content-section">
             <h2 class="section-header" id = "MERCH" >MERCH</h2>
@@ -110,6 +123,7 @@
             </div>
 
         </section>
+
         <section class="container content-section">
             <h2 class="section-header" id = "CART">CART</h2>
             <div class="cart-row">
@@ -156,5 +170,6 @@
                 </ul>
             </div>
         </footer>
+        <script src="store.js" async for="window" event="onload"></script>
     </body>
 </html>
