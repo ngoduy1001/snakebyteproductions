@@ -58,19 +58,26 @@ davidRef.doc("thomas").set({
 // single query
 var docRef = db.collection("inventory").doc("david");
 
-docRef.get().then(function(doc) {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-        var name = doc.get('name')
-        console.log(name)
-        
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch(function(error) {
-    console.log("Error getting document:", error);
-}); 
+function getSingleQuery(callback){
+
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+            var name = doc.get('name')
+            console.log(name)
+            
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+        callback(doc.data());
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+    
+}
+
+getSingleQuery(displayItem);
 
 // /* multiple queries */
 // db.collection("inventory").get().then(function(querySnapshot) {
@@ -83,16 +90,19 @@ docRef.get().then(function(doc) {
 //     });
 // });
 
-
-function displayItem(){
-var sectionHeader = "concac"
-var ItemTitle = "David Bitch"
-var imgSrc = "images/banner.jpg"
-var itemPrice = "13299"
 // var sectionHeader = "concac"
-// var ItemTitle = data.name
-// var imgSrc = data.src
-// var itemPrice = data.price
+// var ItemTitle = "cac"
+// var imgSrc = "cac"
+// var itemPrice ="cac"
+function displayItem(data){
+// var sectionHeader = "concac"
+// var ItemTitle = "David Bitch"
+// var imgSrc = "images/banner.jpg"
+// var itemPrice = "13299"
+var sectionHeader = "concac"
+var ItemTitle = data.name
+var imgSrc = data.src
+var itemPrice = data.price
 var code = `<section class="container content-section">
     <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
     <div class="shop-items">
@@ -108,4 +118,3 @@ var code = `<section class="container content-section">
 </section>`
 document.write(code)
 }
-displayItem()
