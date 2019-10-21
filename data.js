@@ -91,6 +91,10 @@ inventoryRef.doc("thomas").set({
 // });
 getAllItems(inventoryRef, displayItem, init)
 
+var sectionHeader = "concac"
+    var globalStr = `<section class="container content-section">
+    <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
+    <div class="shop-items">`
 
 function getAllItems(ref, displayItem, callback){
     writing = ""
@@ -101,21 +105,24 @@ function getAllItems(ref, displayItem, callback){
     var sectionEnd = `</div>
     </section>`
     writing += sectionBegin
+    globalStr += sectionBegin
     writing = loopDatabase(ref, writing, displayItem);
-    console.log('global', globalStr)
-    writing += sectionEnd
     setTimeout(() => {
+        writing += sectionEnd
+        globalStr += sectionEnd
+        console.log('final', writing)
+        console.log('global',globalStr )
+        var d1 = document.getElementById('test');
+        d1.insertAdjacentHTML('afterend', globalStr);
+        callback() // call ready in store.js
         
-    }, 5000);
-    console.log('final', writing)
-    var d1 = document.getElementById('test');
-    d1.insertAdjacentHTML('afterend', writing);
-    callback() // call ready in store.js
+    }, 2000);
+
 }
-globalStr = ""
+
 function loopDatabase(ref, writing, displayItem) {
     temp = writing
-    globalStr = temp
+    
     ref.get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             // doc.data() is never undefined for query doc snapshots
@@ -125,7 +132,8 @@ function loopDatabase(ref, writing, displayItem) {
         });
     });
     // console.log('global', globalStr)
-    return writing
+    globalStr = temp
+    return temp
 }
 
 function displayItem(data){
