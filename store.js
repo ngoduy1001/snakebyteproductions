@@ -1,12 +1,17 @@
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
-} else {
-    ready()
-}
+init();
 
 var email = ""
 var content = ""
 var emailEntered = false
+
+function init() {
+    if (document.readyState == 'loading') {
+        document.addEventListener('DOMContentLoaded', ready);
+    }
+    else {
+        ready();
+    }
+}
 
 function ready() {
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
