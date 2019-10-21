@@ -150,10 +150,10 @@ var whole =
     </div>
 </section>`
 
-
+var writing = sectionBegin + singleItem + singleItem + sectionEnd
 // document.write(code)
 var d1 = document.getElementById('test');
-d1.insertAdjacentHTML('afterend', whole);
+d1.insertAdjacentHTML('afterend', writing);
 // var info = {d1, sectionBegin, singleItem, sectionEnd }
 // // first(info, second)
 // d1.insertAdjacentHTML('beforeend', sectionBegin);
