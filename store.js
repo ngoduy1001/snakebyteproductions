@@ -1,5 +1,3 @@
-init();
-
 var email = ""
 var content = ""
 var emailEntered = false

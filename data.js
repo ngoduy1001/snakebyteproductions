@@ -43,7 +43,7 @@ var inventoryRef = db.collection("inventory");
 inventoryRef.doc("david").set({
     name: "david", 
     price : "69", 
-    src : "images/banner.jpg" });
+    src : "Images/david.jpeg" });
 
 inventoryRef.doc("jmo").set({
     name: "jmo", 
@@ -53,12 +53,12 @@ inventoryRef.doc("jmo").set({
 inventoryRef.doc("thomas").set({
     name: "thomas", 
     price: "79", 
-    src: "images/banner.jpg" });
+    src: "Images/thomas.jpg" });
 
     inventoryRef.doc("ropha").set({
         name: "ropha", 
         price: "69", 
-        src: "images/banner.jpg" });
+        src: "Images/ropha.jpeg" });
     
 // // single query
 // var docRef = db.collection("inventory").doc("david");
@@ -96,7 +96,7 @@ inventoryRef.doc("thomas").set({
 // });
 getAllItems(inventoryRef, displayItem, init)
 
-var sectionHeader = "concac"
+var sectionHeader = "CONCAC"
     var globalStr = `<section class="container content-section">
     <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
     <div class="shop-items">`
@@ -105,7 +105,7 @@ var loading = true
 
 function getAllItems(ref, displayItem, callback){
     writing = ""
-    var sectionHeader = "concac"
+    var sectionHeader = "CONCAC"
     var sectionBegin = `<section class="container content-section">
     <h2 class="section-header" id = "${sectionHeader}">${sectionHeader}</h2>
     <div class="shop-items">`
@@ -114,6 +114,17 @@ function getAllItems(ref, displayItem, callback){
     writing += sectionBegin
     globalStr += sectionBegin
     writing = loopDatabase(ref, writing, displayItem);
+    // setTimeout(() => {
+    //     writing += sectionEnd
+    //     globalStr += sectionEnd
+    //     console.log('final', writing)
+    //     console.log('global',globalStr )
+    //     var d1 = document.getElementById('test');
+    //     d1.insertAdjacentHTML('afterend', globalStr);
+    //     callback() // call ready in store.js
+    //     writeAnchor()
+        
+    // }, 2000);
     setTimeout(() => {
         writing += sectionEnd
         globalStr += sectionEnd
@@ -122,8 +133,9 @@ function getAllItems(ref, displayItem, callback){
         var d1 = document.getElementById('test');
         d1.insertAdjacentHTML('afterend', globalStr);
         callback() // call ready in store.js
+        writeAnchor()
         
-    }, 2000);
+    }, 1500);
     // while(loading) {        
     // }
     // writing += sectionEnd
@@ -134,6 +146,19 @@ function getAllItems(ref, displayItem, callback){
     // d1.insertAdjacentHTML('afterend', globalStr);
     // callback() // call ready in store.js
 
+}
+// setTimeout(writeAnchor(), 6000)
+function writeAnchor() {
+    var sidenav = document.getElementById('sidenav');
+    // sidenave.
+    var anchor = document.getElementsByClassName("section-header");
+    console.log('anchor', anchor.length)
+    for (var i = 0; i < anchor.length; i++) {
+        console.log('anchor', anchor.item(i).innerHTML)
+        var anchor_html = `<a href="#${anchor.item(i).innerHTML}">${anchor.item(i).innerHTML}</a>`;
+        sidenav.insertAdjacentHTML('beforeend', anchor_html);
+    }
+    console.log('i', i )
 }
 
 function loopDatabase(ref, writing, displayItem) {
@@ -157,14 +182,14 @@ function displayItem(data){
     
     var ItemTitle = data.name
     // var imgSrc = data.src
-    var imgSrc = "/Images/Album 1.png"
+    var imgSrc = data.src
     var itemPrice = data.price
 
     var singleItem = `    
         
             <div class="shop-item">
                 <span class="shop-item-title">${ItemTitle}</span>
-                <img class="shop-item-image" src="${imgSrc}"> 
+                <img class="shop-item-image" src="${imgSrc}" style="width:300px;height:300px;"> 
                 <div class="shop-item-details">
                     <span class="shop-item-price">$${itemPrice}</span>
                     <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>

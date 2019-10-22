@@ -37,13 +37,12 @@
 
         <!-- Dragon Banner -->
         <img src="images/Logo_edited.png" height="200" width="400" class = banner >
-        <div class="sidenav">
-                <!-- <p>Categories</p> -->
-                <a href="#MUSIC">Music</a>
-                <a href="#MERCH">Merch</a>
-                <a href="#CART">Cart</a>
-                <a href="#contact">Contact</a>
-              </div>
+        <!-- <div class="sidenav" id = "sidenav">
+            <a href="#MUSIC">Music</a>
+            <a href="#MERCH">Merch</a>
+            <a href="#CART">Cart</a>
+            <a href="#contact">Contact</a>
+        </div> -->
         
         <section class="container content-section" id = "test">
             <h2 class="section-header" id = "MUSIC">MUSIC</h2>
@@ -98,7 +97,27 @@
         </section>    
 
         <script src="data.js"></script>  
-         
+        <div class="sidenav" id = "sidenav">
+                <!-- <a href="#MUSIC">Music</a>
+                <a href="#MERCH">Merch</a>
+                <a href="#CART">Cart</a>
+                <a href="#contact">Contact</a> -->
+            </div>
+         <!-- <script>
+            writeAnchor()
+            function writeAnchor() {
+                var sidenav = document.getElementById('sidenav');
+                // sidenave.
+                var anchor = document.getElementsByClassName("section-header");
+                console.log('anchor', anchor.length)
+                for (var i = 0; i < anchor.length; i++) {
+                    console.log('anchor', anchor.item(i).innerHTML)
+                    var anchor_html = `<a href="#${anchor.item(i).innerHTML}">${anchor.item(i).innerHTML}</a>`;
+                    sidenav.insertAdjacentHTML('beforeend', anchor_html);
+                }
+                console.log('i', i )
+            }
+         </script> -->
         
         <section class="container content-section">
             <h2 class="section-header" id = "MERCH" >MERCH</h2>
